@@ -4,7 +4,7 @@ from routes import main
 from jinja2 import ChoiceLoader, FileSystemLoader
 
 app = Flask(__name__, static_folder='../css')
-
+app.config['SECRET_KEY'] = 'GeePeeTea'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site.db'
 db.init_app(app)
 
