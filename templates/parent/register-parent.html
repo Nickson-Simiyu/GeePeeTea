@@ -24,15 +24,14 @@
 
     <!---------------------------CSS Linking---------------------------------------------->
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
-    <link rel="stylesheet" href="/css/mobile.css">
-    <link rel="stylesheet" href="/css/tablet.css">
-    <link rel="stylesheet" href="/css/largescreen.css">
-    <link rel="stylesheet" href="/css/nav.css">
-    <link rel="stylesheet" href="/css/register.css">
-    
+    <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tablet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 
     <!---------------------------JS Linking---------------------------------------------->
-    <script src="/js/index.js"></script>
+    <script src="{{ url_for('serve_js', filename='index.js') }}"></script>
 
     <!---------------------------Icon Linking---------------------------------------------->
     <script src="https://kit.fontawesome.com/6c6f1b6f8c.js" crossorigin="anonymous"></script>
@@ -191,9 +190,9 @@
     </footer>
 
     <!----------------JS Linking------------------------->
-    <script src="/js/nav.js" defer></script>
-    <script src="/js/carousel.js" defer></script>
-    <script src="/js/register.js" defer></script>
+    <script src="{{ url_for('serve_js', filename='nav.js') }}" defer></script>
+    <script src="{{ url_for('serve_js', filename='carousel.js') }}" defer></script>
+    <script src="{{ url_for('serve_js', filename='register.js') }}" defer></script>
     
     
 </body>
