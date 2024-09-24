@@ -18,7 +18,7 @@ def back2():
 
 @main.route('/next2')
 def back3():
-    return render_template("teacher/login-teacher.html")
+    return render_template("register.html")
 
 
 

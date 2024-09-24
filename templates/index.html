@@ -26,15 +26,15 @@
 
 
     <!---------------------------CSS Linking---------------------------------------------->
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/tablet.css">
-    <link rel="stylesheet" href="css/largescreen.css">
-    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='tablet.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
     
 
     <!---------------------------JS Linking---------------------------------------------->
-    <script src="js/index.js"></script>
+    <script src="{{ url_for('serve_js', filename='index.js') }}"></script>
 
     <!---------------------------Icon Linking---------------------------------------------->
     <script src="https://kit.fontawesome.com/6c6f1b6f8c.js" crossorigin="anonymous"></script>
@@ -63,19 +63,19 @@
 
             <ul class="nav-links">
                 <li ><a href="#" class="x-icon-menu"><i class="fa-solid fa-xmark fa-xl"></i></a></li>
-                <li><a href="index.html#Home">Home</a></li>
-                <li><a href="index.html#Features">Features</a></li>
-                <li><a href="index.html#About">About Us</a></li>
-                <li><a href="index.html#news">News</a></li>
-                <li><a href="index.html#resources">Resources</a></li>
-                <li><a href="index.html#faqs">FAQ's</a></li>
+                <li><a href="/templates/index.html#Home">Home</a></li>
+                <li><a href="/templates/index.html#Features">Features</a></li>
+                <li><a href="/templates/index.html#About">About Us</a></li>
+                <li><a href="/templates/index.html#news">News</a></li>
+                <li><a href="/templates/index.html#resources">Resources</a></li>
+                <li><a href="/templates/index.html#faqs">FAQ's</a></li>
             </ul>
 
             <div class="cta-button">
-                <a href="login.html">
+                <a href="/templates/login.html">
                     <button class="login">Login</button>
                 </a>
-                <a href="register.html">
+                <a href="/templates/register.html">
                     <button class="register">Register</button>
                 </a>
             </div>

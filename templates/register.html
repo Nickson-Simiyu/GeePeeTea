@@ -88,7 +88,6 @@
                     
                     <div class="form-container">
                         <h3>Register</h3>
-
                         <div class="user-role-toggle">
                             <div class="toggle">
                                 <input type="radio" id="parent" name="role" value="parent" onclick="submitToggle()">
@@ -100,66 +99,13 @@
                                 <span class="slider"></span>
                             </div>
                         </div>
-
-                        <form id="registrationForm">
-                            <!-- Step 1 -->
-                            <div class="form-step active-step" id="step-1">
-                                <h2>User Account Information</h2>
-                                <div class="fields">
-                                    <label>Email</label>
-                                    <input type="text" placeholder="Email" required>
-                                </div>
-                                <div class="fields">
-                                    <label>Password</label>
-                                    <input type="password" placeholder="Password" required>
-                                </div>
-                                <div class="steps">
-                                    <button type="button" onclick="nextStep()">Next</button>
-                                </div>
-                                
-                            </div>
-                            <!-- Step 2 -->
-                            <div class="form-step" id="step-2">
-                                <h2>Personal Details</h2>
-                                <div class="fields">
-                                    <label for="">First Name</label>
-                                    <input type="text" placeholder="First Name" required>
-                                </div>
-                                <div class="fields">
-                                    <label>Last Name</label>
-                                    <input type="text" placeholder="Last Name" required>
-                                </div>
-                                
-                                
-                                <div class="steps">
-                                    <button type="button" onclick="prevStep()">Previous</button>
-                                    <button type="button" onclick="nextStep()">Next</button>
-                                </div>
-                            </div>
-                            <!-- Step 3 -->
-                            <div class="form-step" id="step-3">
-                                <h2>Confirmation</h2>
-                                <p>Please review your information, then submit your application.</p>
-                                <div class="steps">
-                                    <button type="button" onclick="prevStep()">Previous</button>
-                                    <button type="submit">Submit</button>
-                                </div>
-                            </div>
-                        </form>
                     </div>
                 </div>
                 <div class="reg-img" >
                 </div>
-
             </div>
         </section>
-
-
-
-
     </main>
-
-
     <!-----------------------------Footer------------------------------------------------------------>
     <footer>
         <div class="footer-container">
@@ -187,9 +133,9 @@
     </footer>
 
     <!----------------JS Linking------------------------->
-    <script src="/js/nav.js" defer></script>
-    <script src="/js/carousel.js" defer></script>
-    <script src="/js/register.js" defer></script>
+    <script src="{{ url_for('serve_js', filename='nav.js') }}" defer></script>
+    <script src="{{ url_for('serve_js', filename='carousel.js') }}" defer></script>
+    <script src="{{ url_for('serve_js', filename='register.js') }}" defer></script>
     
     
 </body>
