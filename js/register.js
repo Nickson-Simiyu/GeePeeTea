@@ -48,11 +48,11 @@ function submitToggle() {
 
     // Redirect based on the selected role
     if (selectedRole === 'parent') {
-        window.location.href = 'register-parent.html';
+        window.location.href = '/templates/parent/register-parent.html';
     } else if (selectedRole === 'teacher') {
-        window.location.href = 'register-teacher.html';
+        window.location.href = '/templates/teacher/register-teacher.html';
     } else if (selectedRole === 'student') {
-        window.location.href = 'register-student.html';
+        window.location.href = '/templates/student/register-student.html';
     }
 }
 
