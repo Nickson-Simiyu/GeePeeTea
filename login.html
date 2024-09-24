@@ -70,6 +70,7 @@
             </ul>
 
             <div class="cta-button">
+
                 <a href="login.html">
                     <button class="login">Login</button>
                 </a>
@@ -87,6 +88,13 @@
                 <div class="login-form">
                     <h3>Sign In</h3>
                     <form >
+                        <div class="fields">
+                            <select name="role" id="role">
+                                <option value="student">Student</option>
+                                <option value="teacher">Teacher</option>
+                                <option value="parent">Parent</option>
+                            </select>
+                        </div>
                         <div class="fields">
                             <label>Email</label>
                             <input type="text" placeholder="johndoe@gmail.com">
@@ -106,7 +114,7 @@
                     </form>
                     <div class="line-with-text">
                         <span>Or Sign In With</span>
-                      </div>
+                    </div>
                     <div class="buttons">
                         <button >
                             <i class="fa-brands fa-google"></i>
