@@ -114,6 +114,58 @@
         width: 70%;
     }
 }
+.user-role-toggle {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.toggle {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    max-width: 300px;
+    height: 50px;
+    background-color: #ddd;
+    border-radius: 25px;
+    overflow: hidden;
+}
+
+.toggle input[type="radio"] {
+    display: none;
+}
+
+.toggle label {
+    width: 33.33%;
+    height: 100%;
+    float: left;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    color: #666;
+    transition: color 0.3s ease;
+}
+
+.toggle input:checked + label {
+    color: white;
+}
+
+.slider {
+    position: absolute;
+    height: 100%;
+    width: 33.33%;
+    background-color: #4CAF50;
+    border-radius: 25px;
+    transition: transform 0.3s ease;
+}
+
+input[id="teacher"]:checked ~ .slider {
+    transform: translateX(100%);
+}
+
+input[id="student"]:checked ~ .slider {
+    transform: translateX(200%);
+}
 
 /*Desktops*/
 @media screen and (min-width:1200px){
