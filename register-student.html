@@ -91,11 +91,11 @@
 
                         <div class="user-role-toggle">
                             <div class="toggle">
-                                <input type="radio" id="parent" name="role" value="parent" checked>
+                                <input type="radio" id="parent" name="role" value="parent" onclick="submitToggle()">
                                 <label for="parent">Parent</label>
-                                <input type="radio" id="teacher" name="role" value="teacher">
+                                <input type="radio" id="teacher" name="role" value="teacher" onclick="submitToggle()">
                                 <label for="teacher">Teacher</label>
-                                <input type="radio" id="student" name="role" value="student">
+                                <input type="radio" id="student" name="role" value="student" onclick="submitToggle()" checked>
                                 <label for="student">Student</label>
                                 <span class="slider"></span>
                             </div>
@@ -111,7 +111,7 @@
                                 </div>
                                 <div class="fields">
                                     <label>Phone-Number</label>
-                                    <input type="number" placeholder="phone-number" required>
+                                    <input type="number" placeholder="Phone-number" required>
                                 </div>
                                 <div class="fields">
                                     <label>Password</label>
