@@ -1,0 +1,252 @@
+*{
+    scroll-behavior: smooth;
+}
+:root{
+    --primary: #006432;
+    --secondary: #E7F0EB;
+    --tertiary: #fff;
+    --webkit-font-smoothing: subpixel-antialiased;
+    --moz-osx-font-smoothing: subpixel-antialiased; /* or grayscale */
+    font-smooth: never;
+}
+body{
+    margin: 0%;
+    padding: 0%;
+    font-family: poppins;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory; /* Enable vertical scroll snapping */
+}
+
+ul{
+    list-style: none;
+}
+ul li a {
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+}
+img{
+    image-rendering: crisp-edges;
+}
+a, button:hover{
+    cursor: pointer;
+}
+
+.container h3, p{
+    color:var(--primary);
+}
+
+.fa-solid{
+    color: var(--primary);
+}
+main section {
+    margin: 0% 2% 4% 2%;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+main > *:first-child {
+    border: none;
+}
+
+main > *:not(:first-child) {
+    border: 1px solid var(--primary);
+}
+
+
+
+.hero-section article main h3, h4, h5, h6{
+    font-weight: 400;
+    color: var(--tertiary);
+    /*letter-spacing: 2px;*/
+    text-align: center;
+}
+
+
+/**Features Section*/
+.featured-elements{
+    color: var(--primary);
+}
+.feature-card h2{
+    color: var(--primary);
+    text-align: left;
+}
+
+
+/*About US Section*/
+.elements-card{
+    text-align: left;
+    margin: 2% 0%;
+    padding: 2% 0%;
+    border-bottom: 1px solid var(--primary);
+}
+.elements-card h4{
+    color: var(--primary);
+    font-weight: 600;
+    font-size: larger;
+}
+.elements-card button{
+    color: var(--primary);
+    background-color: transparent;
+    padding: 8px 20px;
+    border: 2px solid var(--primary);
+    border-radius: 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bolder;
+    font-size:14px;
+    letter-spacing: 1px;
+    
+}
+
+/**News Section*/
+.topics-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.topics-buttons .topic{
+    flex: 2;
+}
+section .container .topics-buttons .dark button{
+    color: var(--secondary);
+    background-color: var(--primary);
+    padding: 0.7rem 1.5rem;
+    border: 1px solid var(--primary);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 2rem;
+    float: right;
+    text-align: center;
+}
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .news-card {
+      /* Existing styles */
+      animation: fadeIn 0.5s; /* Apply the animation */
+  }
+
+
+/*Resources*/
+@keyframes slideIn {
+    from {
+      left: -100%;
+    }
+    to {
+      left: 0;
+    }
+}
+
+
+/* FAQ's*/
+.space{
+    padding: 2px;
+    background-color: var(--secondary);
+    border-radius: 8px;
+}
+.faqs-card{
+    padding: 2%;
+    margin: 2% 2%;
+    
+    border-radius: 8px;
+    background-color: var(--tertiary);
+}
+.faqs-card .num{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--primary);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    
+}
+.faqs-card .num p {
+    color: var(--tertiary);
+}
+.faqs-card h3{
+    text-align: left;
+    color: var(--primary);
+    padding-left: 1%;
+}
+.info-faqs{
+    text-align: left;
+    padding: 2%;
+    
+}
+
+/*Subscribe*/
+.subscribe .container{
+    background-color: var(--primary);
+}
+.subscribe .container .section-info h3,
+.subscribe .container .section-info p{
+    color: var(--tertiary);
+}
+
+.sub-info form button{
+    color: var(--primary);
+    padding: 0.8rem 1.8rem;
+    border: 2px solid var(--tertiary);
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 2rem;
+    background-color: var(--secondary);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap:1;
+}
+
+/* Footer*/
+footer{
+    background-color: var(--secondary);
+    color: var(--primary);
+    text-align: left;
+    padding: 8% 2%;
+    border-top: 1px solid var(--primary);
+    margin-top: 8%;
+}
+
+footer .logo{
+    color: var(--primary);
+    font-size: 2rem;
+    font-weight: 700;
+}
+.socials .fa-brands{
+    font-size: 2rem;
+    color: var(--primary);
+}
+.contact-info p {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.contact-info p .fa-solid{
+    font-size: 1.5rem;
+    margin-right: 1%;
+}
+
+
+
+
+
+
+  
+
+
+
+

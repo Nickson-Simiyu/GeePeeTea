@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html prefix="og: https://ogp.me/ns#" lang="en">
+<head>
+    <!--------------------------Open Graph-------------------------------------->
+    <meta property="og:url"                content="https://elitescholars.onrender.com/" />
+    <meta property="og:type"               content="website" />
+    <meta property="og:title"              content="Elite Scholars" />
+    <meta property="og:description"        content="A School Pioneered by Alumnis." />
+    <meta property="og:image" content="https://elitescholars.onrender.com/media/pexels-elvis-mkera-14909652 (1)-compressed (1).jpg" />
+
+    <!--------------------------Meta-------------------------------------->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Empowering a new Generation for quality success.">
+    <meta name="author" content="Your Name">
+    <meta name="keywords" content="education, tertiary, schools, alumnii, students, registrations, support">
+    <title>Elite Scholars</title>
+
+    <!--------------------------Favicon-------------------------------------->
+    <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
+    <link rel="manifest" href="resources/site.webmanifest">
+
+    <!---------------------------CSS Linking---------------------------------------------->
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/tablet.css">
+    <link rel="stylesheet" href="css/largescreen.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/register.css">
+    
+
+    <!---------------------------JS Linking---------------------------------------------->
+    <script src="js/index.js"></script>
+
+    <!---------------------------Icon Linking---------------------------------------------->
+    <script src="https://kit.fontawesome.com/6c6f1b6f8c.js" crossorigin="anonymous"></script>
+
+    <!---------------------------Animations Linking---------------------------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+
+    <!---------------------------Fullpage.js Linking---------------------------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
+
+    <!---------------------------------CDNS---------------------------------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!----Swiper.js CDN-->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+</head>
+<body>
+    <!---Header Nav-->
+    <header>
+        <nav class="navbar">
+            <div class="logo">| ELITE SCHOLARS |</div>
+            <div class="menu-toggle">
+                &#9776;
+            </div>
+
+            <ul class="nav-links">
+                <li ><a href="#" class="x-icon-menu"><i class="fa-solid fa-xmark fa-xl"></i></a></li>
+                <li><a href="index.html#Home">Home</a></li>
+                <li><a href="index.html#Features">Features</a></li>
+                <li><a href="index.html#About">About Us</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="index.html#resources">Resources</a></li>
+                <li><a href="index.html#faqs">FAQ's</a></li>
+            </ul>
+
+            <div class="cta-button">
+                <a href="login.html">
+                    <button class="login">Login</button>
+                </a>
+                <a href="register.html">
+                    <button class="register">Register</button>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <!--------------------------Main Page Content------------------------------------------------------------>
+    <main>
+        <section>
+            <div class="register-contents">
+                <div class="reg-form">
+                    
+                    <div class="form-container">
+                        <h3>Register</h3>
+                        <form id="registrationForm">
+                            <!-- Step 1 -->
+                            <div class="form-step active-step" id="step-1">
+                                <h2>User Account Information</h2>
+                                <div class="fields">
+                                    <label>Email</label>
+                                    <input type="text" placeholder="Email" required>
+                                </div>
+                                <div class="fields">
+                                    <label>Password</label>
+                                    <input type="password" placeholder="Password" required>
+                                </div>
+                                <div class="steps">
+                                    <button type="button" onclick="nextStep()">Next</button>
+                                </div>
+                                
+                            </div>
+                            <!-- Step 2 -->
+                            <div class="form-step" id="step-2">
+                                <h2>Personal Details</h2>
+                                <div class="fields">
+                                    <label for="">First Name</label>
+                                    <input type="text" placeholder="First Name" required>
+                                </div>
+                                <div class="fields">
+                                    <label>Last Name</label>
+                                    <input type="text" placeholder="Last Name" required>
+                                </div>
+                                
+                                
+                                <div class="steps">
+                                    <button type="button" onclick="prevStep()">Previous</button>
+                                    <button type="button" onclick="nextStep()">Next</button>
+                                 </div>
+                            </div>
+                            <!-- Step 3 -->
+                            <div class="form-step" id="step-3">
+                                <h2>Confirmation</h2>
+                                <p>Please review your information, then submit your application.</p>
+                                <div class="steps">
+                                    <button type="button" onclick="prevStep()">Previous</button>
+                                    <button type="submit">Submit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="reg-img" >
+                </div>
+
+            </div>
+        </section>
+
+
+
+
+    </main>
+
+
+    <!-----------------------------Footer------------------------------------------------------------>
+    <footer>
+        <div class="footer-container">
+            <div class="company-info">
+                <div class="logo">ELITE SCHOLARS</div>
+                <div><p>Enhancing Academic Excellence</p></div>
+                <div class="socials">
+                    <a href=""><i class="fa-brands fa-twitter"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fa-brands fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="contact-info">
+                <h3>Contact Us</h3>
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    elitescholars@gmail.com
+                </p>
+                <p>
+                    <i></i>
+                    +254 796 055 756
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!----------------JS Linking------------------------->
+    <script src="js/nav.js" defer></script>
+    <script src="js/carousel.js" defer></script>
+    <script src="js/register.js" defer></script>
+    
+    
+</body>
+</html>

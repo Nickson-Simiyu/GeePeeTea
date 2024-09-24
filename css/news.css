@@ -1,0 +1,100 @@
+main .description{
+    background-image: linear-gradient(
+        to right,
+        rgb(0, 100, 50),
+        rgba(0, 0, 0, 0.614)),
+        url(../media/pexels-elvis-mkera-14909652-compressed.jpg)
+    ;
+    object-fit:fill;
+    background-size: cover;
+    border-radius: 8px;
+    border: 1px solid var(--primary);
+    height: 6vh;
+    text-align: left;
+    margin: 0% 2% 1% 2%;
+    color: var(--tertiary);
+}
+.description h7{
+    line-height: 6vh;
+    margin-left: 1%;
+    font-size: 1.2rem;
+}
+
+
+main  .news{
+    border: none !important;
+}
+.news-page{
+    border-bottom: 1px solid var(--primary);
+}
+.news-image img{
+    border: none !important;
+    border-radius: 8px;
+    height: 60vh;
+    object-fit: cover;
+    width: 100%;
+    background-position: center;
+}
+.news-article h3,
+.news-article p,
+.news-article h2 {
+    color: var(--primary) !important;
+    text-align: left;
+}
+.news-links{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--secondary) ;
+    padding: 2%;
+    border-radius: 8px;
+}
+.news-links a {
+    text-decoration: none;
+}
+.news-link img{
+    height: 30vh;
+    border-radius: 8px;
+    width: 100%;
+    object-fit: cover;
+    background-position: center;
+}
+.news-link{
+    border-radius: 8px;
+    margin: 1% 0%;
+    padding: 2%;
+    background-color: var(--tertiary);
+    border-bottom: 2px solid var(--primary) !important;
+}
+
+
+@media screen and (max-width: 768px){
+    .news-links{
+        width:auto;
+    }
+}
+/* Large Tablets Laptops*/
+@media screen and (max-width: 767px) and(max-width: 1199px){
+    .news-links{
+        width:30vw;
+    }
+    .news-link{
+        border-bottom: 2px solid var(--primary) !important;
+    }
+}
+/*Desktops*/
+@media screen and (min-width:1200px){
+    .news-links{
+        width:30vw;
+    }
+    .articles-info{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    
+    }
+    .news-page{
+        padding: 0% 1% 0% 0%;
+        border-bottom: 1px solid var(--primary);
+    }
+}
