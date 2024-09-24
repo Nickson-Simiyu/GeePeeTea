@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link href="/css/teacher.css" rel="stylesheet"> <!-- Link the CSS here -->
+</head>
+<body>
+    <header>
+        <h1>Teacher Dashboard</h1>
+        <nav>
+            <ul>
+                <li><a href="#create-task">Create Task</a></li>
+                <li><a href="#assigned-tasks">Assigned Tasks</a></li>
+                <li><a href="templates/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Create Task Section -->
+        <section id="create-task">
+            <h2>Create Task</h2>
+            <form action="/create-task" method="POST" enctype="multipart/form-data">
+                <label for="task-title">Task Title:</label>
+                <input type="text" id="task-title" name="task-title" required><br><br>
+
+                <label for="task-description">Task Description:</label>
+                <textarea id="task-description" name="task-description" rows="4" required></textarea><br><br>
+
+                <!-- File Upload for PDFs, Word Docs -->
+                <label for="attachments">Attach Files:</label>
+                <input type="file" id="attachments" name="attachments[]" multiple accept=".pdf,.doc,.docx,.txt"><br><br>
+
+                <!-- Assign to multiple students -->
+                <label for="students">Assign to Students:</label>
+                <select id="students" name="students[]" multiple required>
+                    <option value="student1">Student 1</option>
+                    <option value="student2">Student 2</option>
+                    <option value="student3">Student 3</option>
+                    <!-- Add more students here -->
+                </select><br><br>
+
+                <label for="due-date">Due Date:</label>
+                <input type="date" id="due-date" name="due-date" required><br><br>
+
+                <button type="submit">Create Task</button>
+            </form>
+        </section>
+
+        <!-- Assigned Tasks Section -->
+        <section id="assigned-tasks">
+            <h2>Assigned Tasks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task</th>
+                        <th>Student(s)</th>
+                        <th>Due Date</th>
+                        <th>Status</th>
+                        <th>Attachments</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Math Homework</td>
+                        <td>Student 1, Student 2</td>
+                        <td>2024-09-30</td>
+                        <td>In Progress</td>
+                        <td><a href="file-link.pdf">Math_Homework.pdf</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    
+</body>
+</html>
