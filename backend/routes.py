@@ -118,9 +118,9 @@ def teacher_login():
 @main.route('/teacher', methods=['GET', 'POST'])
 #@login_required
 def teacher_dashboard():
-    if 'user_id' not in session:
-        flash('Please log in to access this page.', 'warning')
-        return redirect(url_for('main.teacher_login'))
+    #if 'user_id' not in session:
+        #flash('Please log in to access this page.', 'warning')
+        #return redirect(url_for('main.teacher_login'))
     return render_template('teacher/teacher.html')
 
 
