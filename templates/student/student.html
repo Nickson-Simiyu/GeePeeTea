@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
-    <link rel="stylesheet" href="/css/student.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='student.css') }}">
 </head>
 <body>
     <div class="materials-container">
@@ -30,15 +30,14 @@
                         <h2>E-Learning</h2>
                         <p>Access to Student eLearning platform.</p>
                         <p>Access to eLearning Tutorials.</p>
-
                     </div>
-                    <div class="feature-card" onclick="window.location.href='syllabus.html'">
+                    <div class="feature-card" onclick="window.location.href='{{ url_for('main.syllabus') }}'">
                         <i class="fa-solid fa-list-ol"></i>
                         <h2>Syllabus System</h2>
                         <p>Access to Student Syllabus  System.</p>
                         <p>Download Syllabus  Texts Books.</p>
                     </div>
-                    <div class="feature-card" onclick="window.location.href='pastpapers.html'">
+                    <div class="feature-card" onclick="window.location.href='{{ url_for('main.pastpapers') }}'">
                         <i class="fa-solid fa-book-open-reader"></i>
                         <h2>Exam Center</h2>
                         <p>Access to Student Exam Center.</p>
@@ -72,7 +71,7 @@
         </div>
     </footer> -->
 
-    <script src="/js/student.js"></script>
+    <script src="{{ url_for('serve_js', filename='student.js') }}"></script>
 </body>
 </html>
 

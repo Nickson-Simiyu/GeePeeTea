@@ -156,9 +156,19 @@ def student_login():
 @main.route('/student', methods=['GET', 'POST'])
 #@login_required
 def student_dashboard():
-    if 'user_id' not in session:
-        flash('Please log in to access this page.', 'warning')
-        return redirect(url_for('main.student_login'))
+    #if 'user_id' not in session:
+    #    flash('Please log in to access this page.', 'warning')
+    #    return redirect(url_for('main.student_login'))
     return render_template('student/student.html')
 
+@main.route('/student/pastpapers', methods=['GET', 'POST'])
+def pastpapers():
+    return render_template('student/pastpapers.html')
 
+@main.route('/student/e-learning', methods=['GET', 'POST'])
+def e_learning():
+    return render_template('student/e-learning.html')
+
+@main.route('/student/syllabus', methods=['GET', 'POST'])
+def syllabus():
+    return render_template('student/syllabus.html')
