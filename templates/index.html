@@ -29,7 +29,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tablet.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
     
 
@@ -72,10 +72,10 @@
             </ul>
 
             <div class="cta-button">
-                <a href="/templates/login.html">
+                <a href="{{ url_for('main.parent_login') }}">
                     <button class="login">Login</button>
                 </a>
-                <a href="/templates/register.html">
+                <a href="{{ url_for('main.parent_register') }}">
                     <button class="register">Register</button>
                 </a>
             </div>
@@ -171,7 +171,8 @@
                 <div class="about-elements">
                     <div class="elements-card">
                         <div class="image">
-                            <img src="media/ian-macharia-7k91OUDYAQ0-unsplash (1)-compressed.jpg" alt="">
+                            <img src="{{ url_for('static', filename='/media/ian-macharia-7k91OUDYAQ0-unsplash (1)-compressed.jpg (1)-compressed.jpg') }}" alt="">
+                            
                         </div>
                         <div>
                             <h4>Our Mandate</h4>
@@ -189,7 +190,7 @@
                             <h4>Dr. Frank Majorly</h4>
                         </div>
                         <div>
-                            <img src="media/taylor-grote-UiVe5QvOhao-unsplash-compressed.jpg" alt="">
+                            <img src="{{ url_for('static', filename='/media/taylor-grote-UiVe5QvOhao-unsplash-compressed.jpg') }}" alt="">
                         </div>
                     </div>
                 </div>
@@ -221,7 +222,7 @@
                 <div class="news-info">
                     <div class="news-card">
                         <div>
-                            <img src="media/joel-muniz-XHT01BY-cGo-unsplash-compressed.jpg" class="img-responsive">
+                            <img src="{{ url_for('static', filename='/media/joel-muniz-XHT01BY-cGo-unsplash-compressed.jpg') }}" class="img-responsive">
                         </div>
                         <div class="card-info">
                             <h3><span>Achievements</span> : Sports</h3>
@@ -239,7 +240,7 @@
 
                     <div class="news-card">
                         <div>
-                            <img src="media/rut-miit-oTglG1D4hRA-unsplash-compressed.jpg" alt="graduation picture" class="img-responsive">
+                            <img src="{{ url_for('static', filename='/media/rut-miit-oTglG1D4hRA-unsplash-compressed.jpg') }}" alt="graduation picture" class="img-responsive">
                         </div>
                         <div class="card-info">
                             <h3>Graduation Day : The last Day</h3>
@@ -257,7 +258,7 @@
 
                     <div class="news-card">
                         <div>
-                            <img src="media/pexels-roman-odintsov-11025019-compressed.jpg" alt="Academic Excellence" class="img-responsive">
+                            <img src="{{ url_for('static', filename='media/pexels-roman-odintsov-11025019-compressed.jpg') }}" alt="Academic Excellence" class="img-responsive">
                         </div>
                         <div class="card-info">
                             <h3>Academic Excellence : Foundations</h3>
@@ -419,8 +420,9 @@
     </footer>
 
     <!----------------JS Linking------------------------->
-    <script src="js/nav.js" defer></script>
-    <script src="js/carousel.js" async></script>
+    <script src="{{ url_for('serve_js', filename='nav.js') }}" defer></script>
+    <script src="{{ url_for('serve_js', filename='carousel.js') }}" defer></script>
+    
     
     
 </body>

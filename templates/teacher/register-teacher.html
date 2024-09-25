@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html prefix="og: https://ogp.me/ns#" lang="en">
 <head>
-    <!--------------------------Open Graph-------------------------------------->
-    <meta property="og:url"                content="https://elitescholars.onrender.com/" />
-    <meta property="og:type"               content="website" />
-    <meta property="og:title"              content="Elite Scholars" />
-    <meta property="og:description"        content="A School Pioneered by Alumnis." />
+    <!--------------------------Open Graph--------------------------------------> 
+    <meta property="og:url" content="https://elitescholars.onrender.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Elite Scholars" />
+    <meta property="og:description" content="A School Pioneered by Alumni." />
     <meta property="og:image" content="https://elitescholars.onrender.com/media/pexels-elvis-mkera-14909652 (1)-compressed (1).jpg" />
 
-    <!--------------------------Meta-------------------------------------->
+    <!--------------------------Meta--------------------------------------> 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Empowering a new Generation for quality success.">
@@ -16,42 +16,41 @@
     <meta name="keywords" content="education, tertiary, schools, alumnii, students, registrations, support">
     <title>Elite Scholars</title>
 
-    <!--------------------------Favicon-------------------------------------->
-    <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
-    <link rel="manifest" href="resources/site.webmanifest">
+    <!--------------------------Favicon--------------------------------------> 
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='resources/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='resources/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='resources/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='resources/site.webmanifest') }}">
 
-    <!---------------------------CSS Linking---------------------------------------------->
+    <!---------------------------CSS Linking----------------------------------------------> 
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tablet.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
-    
 
-    <!---------------------------JS Linking---------------------------------------------->
+    <!---------------------------JS Linking----------------------------------------------> 
     <script src="{{ url_for('serve_js', filename='index.js') }}"></script>
 
-    <!---------------------------Icon Linking---------------------------------------------->
+    <!---------------------------Icon Linking----------------------------------------------> 
     <script src="https://kit.fontawesome.com/6c6f1b6f8c.js" crossorigin="anonymous"></script>
 
-    <!---------------------------Animations Linking---------------------------------------------->
+    <!---------------------------Animations Linking----------------------------------------------> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!---------------------------Fullpage.js Linking---------------------------------------------->
+    <!---------------------------Fullpage.js Linking----------------------------------------------> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
 
-    <!---------------------------------CDNS---------------------------------------------------->
+    <!---------------------------------CDNs----------------------------------------------------> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!----Swiper.js CDN-->
+    <!----Swiper.js CDN--> 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 </head>
 <body>
-    <!---Header Nav-->
+    <!---Header Nav--> 
     <header>
         <nav class="navbar">
             <div class="logo">| ELITE SCHOLARS |</div>
@@ -60,27 +59,27 @@
             </div>
 
             <ul class="nav-links">
-                <li ><a href="#" class="x-icon-menu"><i class="fa-solid fa-xmark fa-xl"></i></a></li>
-                <li><a href="/templates/index.html#Home">Home</a></li>
-                <li><a href="/templates/index.html#Features">Features</a></li>
-                <li><a href="/templates/index.html#About">About Us</a></li>
-                <li><a href="/templates/index.html#news">News</a></li>
-                <li><a href="/templates/index.html#resources">Resources</a></li>
-                <li><a href="/templates/index.html#faqs">FAQ's</a></li>
+                <li><a href="#" class="x-icon-menu"><i class="fa-solid fa-xmark fa-xl"></i></a></li>
+                <li><a href="{{ url_for('main.home') }}#Home">Home</a></li>
+                <li><a href="{{ url_for('main.home') }}#Features">Features</a></li>
+                <li><a href="{{ url_for('main.home') }}#About">About Us</a></li>
+                <li><a href="{{ url_for('main.home') }}#news">News</a></li>
+                <li><a href="{{ url_for('main.home') }}#resources">Resources</a></li>
+                <li><a href="{{ url_for('main.home') }}#faqs">FAQ's</a></li>
             </ul>
 
             <div class="cta-button">
-                <a href="/templates/login.html">
+                <a href="{{ url_for('main.login') }}">
                     <button class="login">Login</button>
                 </a>
-                <a href="/templates/register.html">
+                <a href="{{ url_for('main.register') }}">
                     <button class="register">Register</button>
                 </a>
             </div>
         </nav>
     </header>
 
-    <!--------------------------Main Page Content------------------------------------------------------------>
+    <!--------------------------Main Page Content------------------------------------------------------------> 
     <main>
         <section>
             <div class="register-contents">
@@ -100,36 +99,29 @@
                             </div>
                         </div>
 
-                        <form id="registrationForm">
+                        <form id="registrationForm" method="POST" action="{{ url_for('main.register') }}">
                             <!-- Step 1 -->
                             <div class="form-step active-step" id="step-1">
                                 <h2>User Account Information</h2>
                                 <div class="fields">
                                     <label>Email</label>
-                                    <input type="text" placeholder="Email" required>
+                                    <input type="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="fields">
                                     <label>Password</label>
-                                    <input type="password" placeholder="Password" required>
+                                    <input type="password" name="password" placeholder="Password" required>
                                 </div>
                                 <div class="steps">
                                     <button type="button" onclick="nextStep()">Next</button>
                                 </div>
-                                
                             </div>
                             <!-- Step 2 -->
                             <div class="form-step" id="step-2">
                                 <h2>Personal Details</h2>
                                 <div class="fields">
-                                    <label for="">First Name</label>
-                                    <input type="text" placeholder="First Name" required>
+                                    <label for="">Full Name</label>
+                                    <input type="text" name="fullname" placeholder="Full Name" required>
                                 </div>
-                                <div class="fields">
-                                    <label>Last Name</label>
-                                    <input type="text" placeholder="Last Name" required>
-                                </div>
-                                
-                                
                                 <div class="steps">
                                     <button type="button" onclick="prevStep()">Previous</button>
                                     <button type="button" onclick="nextStep()">Next</button>
@@ -147,19 +139,13 @@
                         </form>
                     </div>
                 </div>
-                <div class="reg-img" >
+                <div class="reg-img">
                 </div>
-
             </div>
         </section>
-
-
-
-
     </main>
 
-
-    <!-----------------------------Footer------------------------------------------------------------>
+    <!-----------------------------Footer------------------------------------------------------------> 
     <footer>
         <div class="footer-container">
             <div class="company-info">
@@ -178,18 +164,30 @@
                     elitescholars@gmail.com
                 </p>
                 <p>
-                    <i></i>
+                    <i class="fa-solid fa-phone"></i>
                     +254 796 055 756
                 </p>
             </div>
         </div>
     </footer>
 
-    <!----------------JS Linking------------------------->
+    <!----------------JS Linking-------------------------> 
     <script src="{{ url_for('serve_js', filename='nav.js') }}" defer></script>
     <script src="{{ url_for('serve_js', filename='carousel.js') }}" defer></script>
     <script src="{{ url_for('serve_js', filename='register.js') }}" defer></script>
-    
-    
+    <script>
+        function submitToggle() {
+            const selectedRole = document.querySelector('input[name="role"]:checked').value;
+
+            // Redirect based on the selected role
+            if (selectedRole === 'parent') {
+                window.location.href = "{{ url_for('main.parent_register') }}";
+            } else if (selectedRole === 'teacher') {
+                window.location.href = "{{ url_for('main.teacher_register') }}";
+            } else if (selectedRole === 'student') {
+                window.location.href = "{{ url_for('main.student_register') }}";
+            }
+        }
+    </script>
 </body>
 </html>

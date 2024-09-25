@@ -126,15 +126,9 @@
                             <div class="form-step" id="step-2">
                                 <h2>Personal Details</h2>
                                 <div class="fields">
-                                    <label for="">First Name</label>
+                                    <label for="">Full Name</label>
                                     <input type="text" placeholder="First Name" required>
                                 </div>
-                                <div class="fields">
-                                    <label>Last Name</label>
-                                    <input type="text" placeholder="Last Name" required>
-                                </div>
-                                
-                                
                                 <div class="steps">
                                     <button type="button" onclick="prevStep()">Previous</button>
                                     <button type="button" onclick="nextStep()">Next</button>
@@ -194,6 +188,20 @@
     <script src="{{ url_for('serve_js', filename='nav.js') }}" defer></script>
     <script src="{{ url_for('serve_js', filename='carousel.js') }}" defer></script>
     <script src="{{ url_for('serve_js', filename='register.js') }}" defer></script>
+    <script>
+        function submitToggle() {
+            const selectedRole = document.querySelector('input[name="role"]:checked').value;
+
+            // Redirect based on the selected role
+            if (selectedRole === 'parent') {
+                window.location.href = "{{ url_for('main.parent_register') }}";
+            } else if (selectedRole === 'teacher') {
+                window.location.href = "{{ url_for('main.teacher_register') }}";
+            } else if (selectedRole === 'student') {
+                window.location.href = "{{ url_for('main.student_register') }}";
+            }
+        }
+    </script>
     
     
 </body>

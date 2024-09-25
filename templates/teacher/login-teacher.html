@@ -188,6 +188,20 @@
     <!----------------JS Linking------------------------->
     <script src="{{ url_for('serve_js', filename='nav.js') }}" defer></script>
     <script src="{{ url_for('serve_js', filename='carousel.js') }}" defer></script>
+    <script>
+        function submitToggle() {
+            const selectedRole = document.querySelector('input[name="role"]:checked').value;
+
+            // Redirect based on the selected role
+            if (selectedRole === 'parent') {
+                window.location.href = "{{ url_for('main.parent_register') }}";
+            } else if (selectedRole === 'teacher') {
+                window.location.href = "{{ url_for('main.teacher_register') }}";
+            } else if (selectedRole === 'student') {
+                window.location.href = "{{ url_for('main.student_register') }}";
+            }
+        }
+    </script>
     
     
 </body>

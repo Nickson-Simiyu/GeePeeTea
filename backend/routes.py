@@ -1,5 +1,6 @@
+import os
 import bcrypt
-from flask import Blueprint, flash, redirect, render_template, request, session, url_for
+from flask import Blueprint, app, flash, redirect, render_template, request, session, url_for
 from flask_login import login_required, logout_user
 from forms import LoginForm, RegistrationForm
 from models import Person, Task, db
@@ -16,7 +17,7 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Person(username=form.username.data, email=form.email.data, password=hashed_password)
+        user = Person(fullname=form.fullname.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Account created successfully!', 'success')
@@ -34,7 +35,7 @@ def login():
             session['user_id'] = user.id
             session['email'] = user.email
             flash('Login successful!', 'success')
-            return redirect(url_for('main.index'))
+            return redirect(url_for('main.home'))
         else:
             flash('Login unsuccessful. Check email and password.', 'danger')
     return render_template("templates/login.html", form=form, category='error')
@@ -173,7 +174,7 @@ def student_register():
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.student_login'))
-    return render_template("templates/register-student.html", form=form)
+    return render_template("student/register-student.html", form=form)
 
 @main.route('/login-student', methods=['GET', 'POST'])
 def student_login():
