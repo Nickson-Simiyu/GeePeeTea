@@ -1,19 +1,30 @@
 from flask_wtf import FlaskForm
-from wtforms import IntegerField, StringField, PasswordField, SubmitField, RadioField
+from wtforms import StringField, PasswordField, RadioField, SubmitField
 from wtforms.validators import DataRequired, Email, Length
 
-
-class RegistrationForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
-    phone_number = IntegerField('Phone Number', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
-    first_name = StringField('First Name', validators=[DataRequired()])
-    last_name = StringField('Last Name', validators=[DataRequired()])
-    role = RadioField('Role', choices=[('parent', 'Parent'), ('teacher', 'Teacher'), ('student', 'Student')], default='student', validators=[DataRequired()])
-    submit = SubmitField('Register')
-
 class LoginForm(FlaskForm):
+    fullname = StringField('Full Name', validators=[DataRequired(), Length(min=2, max=100)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
     role = RadioField('Role', choices=[('parent', 'Parent'), ('teacher', 'Teacher'), ('student', 'Student')], default='student', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Login')
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=30)])
+    fullname = StringField('Full Name', validators=[DataRequired(), Length(min=2, max=100)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=100)])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), Length(min=6, max=100)])
+    submit = SubmitField('Register')
+    
+    def validate(self):
+        # Call the parent class validate method
+        if not super(RegistrationForm, self).validate():
+            return False
+        
+        # Custom validation logic here (if needed)
+        if self.password.data != self.confirm_password.data:
+            self.password.errors.append("Passwords must match.")
+            return False
+        
+        return True

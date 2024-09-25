@@ -2,52 +2,49 @@
 <html prefix="og: https://ogp.me/ns#" lang="en">
 <head>
     <!--------------------------Open Graph-------------------------------------->
-    <meta property="og:url"                content="https://elitescholars.onrender.com/" />
-    <meta property="og:type"               content="website" />
-    <meta property="og:title"              content="Elite Scholars" />
-    <meta property="og:description"        content="A School Pioneered by Alumnis." />
+    <meta property="og:url" content="https://elitescholars.onrender.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Elite Scholars" />
+    <meta property="og:description" content="A School Pioneered by Alumni." />
     <meta property="og:image" content="https://elitescholars.onrender.com/media/pexels-elvis-mkera-14909652 (1).jpg" />
 
-    <!--------------------------Meta-------------------------------------->
+    <!--------------------------Meta-------------------------------------------->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Empowering a new Generation for quality success.">
     <meta name="author" content="Your Name">
-    <meta name="keywords" content="education, tertiary, schools, alumnii, students, registrations, support">
+    <meta name="keywords" content="education, tertiary, schools, alumni, students, registrations, support">
     <title>Elite Scholars</title>
 
-    <!--------------------------Favicon-------------------------------------->
-    <link rel="apple-touch-icon" sizes="180x180" href="resources/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="resources/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="resources/favicon-16x16.png">
-    <link rel="manifest" href="resources/site.webmanifest">
+    <!--------------------------Favicon----------------------------------------->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='resources/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='resources/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='resources/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='resources/site.webmanifest') }}">
 
-    <!---------------------------CSS Linking---------------------------------------------->
+    <!---------------------------CSS Linking-------------------------------------->
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tablet.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='login.css') }}">
-    
 
-    <!---------------------------JS Linking---------------------------------------------->
+    <!---------------------------JS Linking--------------------------------------->
     <script src="{{ url_for('serve_js', filename='index.js') }}"></script>
     <script src="{{ url_for('serve_js', filename='login.js') }}"></script>
 
-    <!---------------------------Icon Linking---------------------------------------------->
+    <!---------------------------Icon Linking------------------------------------->
     <script src="https://kit.fontawesome.com/6c6f1b6f8c.js" crossorigin="anonymous"></script>
 
-    <!---------------------------Animations Linking---------------------------------------------->
+    <!---------------------------Animations Linking-------------------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 
-    <!---------------------------Fullpage.js Linking---------------------------------------------->
+    <!---------------------------Fullpage.js Linking-------------------------------->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.20/fullpage.min.js"></script>
 
-    <!---------------------------------CDNS---------------------------------------------------->
+    <!---------------------------------CDNs---------------------------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!----Swiper.js CDN-->
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 
 </head>
@@ -56,9 +53,7 @@
     <header>
         <nav class="navbar">
             <div class="logo">| ELITE SCHOLARS |</div>
-            <div class="menu-toggle">
-                &#9776;
-            </div>
+            <div class="menu-toggle">&#9776;</div>
 
             <ul class="nav-links">
                 <li><a href="#" class="x-icon-menu"><i class="fa-solid fa-xmark fa-xl"></i></a></li>
@@ -81,7 +76,7 @@
         </nav>
     </header>
 
-    <!--------------------------Main Page Content------------------------------------------------------------>
+    <!--------------------------Main Page Content-------------------------------->
     <main>
         <section>
             <div class="login-contents">
@@ -112,11 +107,11 @@
                             </div>
                         </div>
                         
-                        <div class="fields">
-                            <label for="email">Email</label>
-                            {{ form.email(class_="form-control", placeholder="johndoe@gmail.com") }}
+                        <div class="fields"></div>
+                            <label for="fullname">Full Name</label>
+                            {{ form.fullname(class_="form-control", placeholder="John Doe") }}
                         </div>
-                    
+
                         <div class="fields">
                             <label for="password">Password</label>
                             {{ form.password(class_="form-control") }}
@@ -136,9 +131,9 @@
                         <span>Or Sign In With</span>
                     </div>
                     <div class="buttons">
-                        <button >
+                        <button>
                             <i class="fa-brands fa-google"></i>
-                            <p>Sign In With google</p>
+                            <p>Sign In With Google</p>
                         </button>
                         <button>
                             <i class="fa-brands fa-facebook-f"></i>
@@ -146,29 +141,23 @@
                         </button>
                     </div>
                 </div>
-                <div class="login-img" >
-
+                <div class="login-img">
+                    <!-- Optional: You can add an image here if needed -->
                 </div>
-
             </div>
         </section>
-
-
-
-
     </main>
 
-
-    <!-----------------------------Footer------------------------------------------------------------>
+    <!-----------------------------Footer----------------------------------------->
     <footer>
         <div class="footer-container">
             <div class="company-info">
                 <div class="logo">ELITE SCHOLARS</div>
                 <div><p>Enhancing Academic Excellence</p></div>
                 <div class="socials">
-                    <a href=""><i class="fa-brands fa-twitter"></i></a>
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-pinterest"></i></a>
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="#"><i class="fa-brands fa-pinterest"></i></a>
                 </div>
             </div>
             <div class="contact-info">
@@ -178,7 +167,7 @@
                     elitescholars@gmail.com
                 </p>
                 <p>
-                    <i></i>
+                    <i class="fa-solid fa-phone"></i>
                     +254 796 055 756
                 </p>
             </div>
@@ -188,7 +177,5 @@
     <!----------------JS Linking------------------------->
     <script src="{{ url_for('serve_js', filename='nav.js') }}" defer></script>
     <script src="{{ url_for('serve_js', filename='carousel.js') }}" defer></script>
-    
-    
 </body>
 </html>
