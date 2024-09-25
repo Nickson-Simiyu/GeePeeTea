@@ -2,7 +2,7 @@ import bcrypt
 from flask import Blueprint, flash, redirect, render_template, request, session, url_for
 from flask_login import login_required, logout_user
 from forms import LoginForm, RegistrationForm
-from models import Parent, Person, Teacher, Student, db
+from models import Person, Task, db
 
 main = Blueprint('main', __name__)
 
@@ -21,7 +21,7 @@ def register():
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.login'))
-    return render_template("main.register", form=form)
+    return render_template("templates/register.html", form=form)
 
 #Login
 @main.route('/login', methods=['GET', 'POST'])
@@ -37,7 +37,7 @@ def login():
             return redirect(url_for('main.index'))
         else:
             flash('Login unsuccessful. Check email and password.', 'danger')
-    return render_template("main.login", form=form, category='error')
+    return render_template("templates/login.html", form=form, category='error')
 
 # Logout
 @main.route('/logout')
@@ -60,7 +60,7 @@ def parent_register():
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.parent_login'))
-    return render_template("main.parent_register", form=form)
+    return render_template("parent/register-parent.html", form=form)
 
 @main.route('/login-parent', methods=['GET', 'POST'])
 def parent_login():
@@ -75,7 +75,7 @@ def parent_login():
             return redirect(url_for('main.parent_dashboard'))
         else:
             flash('Login unsuccessful. Check email and password.', 'danger')
-    return render_template("main.parent_login", form=form, category='error')
+    return render_template("parent/login-parent.html", form=form, category='error')
 
 @main.route('/parent')
 #@login_required
@@ -98,7 +98,7 @@ def teacher_register():
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.teacher_login'))
-    return render_template("main.teacher_register", form=form)
+    return render_template("teacher/register-teacher.html", form=form)
 
 @main.route('/register_login', methods=['GET', 'POST'])
 def teacher_login():
@@ -113,7 +113,7 @@ def teacher_login():
             return redirect(url_for('main.teacher_dashboard'))
         else:
             flash('Login unsuccessful. Check email and password.', 'danger')
-    return render_template("main.teacher_login", form=form, category='error')
+    return render_template("teacher/login-teacher.html", form=form, category='error')
 
 @main.route('/teacher', methods=['GET', 'POST'])
 #@login_required
@@ -123,6 +123,43 @@ def teacher_dashboard():
         #return redirect(url_for('main.teacher_login'))
     return render_template('teacher/teacher.html')
 
+
+@main.route('/teacher/create-task', methods=['GET', 'POST'])
+def create_task():
+    if request.method == 'POST':
+        title = request.form['task-title']
+        description = request.form['task-description']
+        due_date = request.form['due-date']
+        students = ','.join(request.form.getlist('students'))  # Combine selected students
+        
+        # Handle file uploads
+        uploaded_files = request.files.getlist('attachments')
+        file_paths = []
+        if uploaded_files:
+            for file in uploaded_files:
+                if file:
+                    filename = secure_filename(file.filename)
+                    filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+                    file.save(filepath)  # Save the file to the upload folder
+                    file_paths.append(filepath)
+
+        attachments = ','.join(file_paths) if file_paths else None  # Join file paths into a CSV string
+
+        # Create a new task object
+        new_task = Task(title=title, description=description, due_date=due_date, students=students, attachments=attachments)
+        
+        db.session.add(new_task)
+        db.session.commit()
+
+        return redirect(url_for('/teacher/task_list'))
+
+    return render_template('/teacher/create_task.html')
+
+# Task List Route (to view tasks)
+@main.route('/teacher/tasks')
+def task_list():
+    tasks = Task.query.all()
+    return render_template('/teacher/task_list.html', tasks=tasks)
 
 
 # Student
@@ -136,7 +173,7 @@ def student_register():
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.student_login'))
-    return render_template("main.student_register", form=form)
+    return render_template("templates/register-student.html", form=form)
 
 @main.route('/login-student', methods=['GET', 'POST'])
 def student_login():
@@ -151,7 +188,7 @@ def student_login():
             return redirect(url_for('main.student_dashboard'))
         else:
             flash('Login unsuccessful. Check email and password.', 'danger')
-    return render_template("main.student_login", form=form, category='error')
+    return render_template("templates/login-student.html", form=form, category='error')
 
 @main.route('/student', methods=['GET', 'POST'])
 #@login_required
