@@ -87,14 +87,18 @@
             <div class="login-contents">
                 <div class="login-form">
                     <h3>Sign In</h3>
-                    <form >
-                        <div class="fields">
-                            <select name="role" id="role">
-                                <option value="student">Student</option>
-                                <option value="teacher">Teacher</option>
-                                <option value="parent">Parent</option>
-                            </select>
+                    <div class="user-role-toggle">
+                        <div class="toggle">
+                            <input type="radio" id="parent" name="role" value="parent" onclick="submitToggle()" checked>
+                            <label for="parent">Parent</label>
+                            <input type="radio" id="teacher" name="role" value="teacher" onclick="submitToggle()">
+                            <label for="teacher">Teacher</label>
+                            <input type="radio" id="student" name="role" value="student" onclick="submitToggle()">
+                            <label for="student">Student</label>
+                            <span class="slider"></span>
                         </div>
+                    </div>
+                    <form >
                         <div class="fields">
                             <label>Email</label>
                             <input type="text" placeholder="johndoe@gmail.com">

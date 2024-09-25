@@ -17,7 +17,9 @@ def register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Person(fullname=form.fullname.data, email=form.email.data, password=hashed_password)
+        user = Person(fullname=form.fullname.data, 
+                        email=form.email.data, 
+                        password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Account created successfully!', 'success')
@@ -38,7 +40,7 @@ def login():
             return redirect(url_for('main.home'))
         else:
             flash('Login unsuccessful. Check email and password.', 'danger')
-    return render_template("templates/login.html", form=form, category='error')
+    return render_template("login.html", form=form, category='error')
 
 # Logout
 @main.route('/logout')
@@ -51,7 +53,7 @@ def logout():
 # USER ROUTES
 
 # Parent
-@main.route('/register-parent')
+@main.route('/register-parent', methods=['GET', 'POST'])
 def parent_register():
     form = RegistrationForm()
     if form.validate_on_submit():
@@ -61,7 +63,7 @@ def parent_register():
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.parent_login'))
-    return render_template("parent/register-parent.html", form=form)
+    return render_template("parent/login-parent.html", form=form)
 
 @main.route('/login-parent', methods=['GET', 'POST'])
 def parent_login():
@@ -81,9 +83,9 @@ def parent_login():
 @main.route('/parent')
 #@login_required
 def parent_dashboard():
-    if 'user_id' not in session:
-        flash('Please log in to access this page.', 'warning')
-        return redirect(url_for('main.parent_login'))
+    #if 'user_id' not in session:
+    #    flash('Please log in to access this page.', 'warning')
+    #    return redirect(url_for('main.parent_login'))
     return render_template('parent/dashboard.html')
 
 
@@ -99,9 +101,9 @@ def teacher_register():
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.teacher_login'))
-    return render_template("teacher/register-teacher.html", form=form)
+    return render_template("teacher/login-teacher.html", form=form)
 
-@main.route('/register_login', methods=['GET', 'POST'])
+@main.route('/login_teacher', methods=['GET', 'POST'])
 def teacher_login():
     form = LoginForm()
     if form.validate_on_submit():
@@ -114,7 +116,7 @@ def teacher_login():
             return redirect(url_for('main.teacher_dashboard'))
         else:
             flash('Login unsuccessful. Check email and password.', 'danger')
-    return render_template("teacher/login-teacher.html", form=form, category='error')
+    return render_template("teacher/teacher.html", form=form, category='error')
 
 @main.route('/teacher', methods=['GET', 'POST'])
 #@login_required

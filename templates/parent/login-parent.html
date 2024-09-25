@@ -87,26 +87,15 @@
             <div class="login-contents">
                 <div class="login-form">
                     <h3>Sign In</h3>
-                    <form method="POST" action="{{ url_for('main.login') }}">
-                        {{ form.hidden_tag() }}
+                    <form method="POST" action="{{ url_for('main.parent_login') }}">
                     
                         <div class="user-role-toggle">
                             <div class="toggle">
-                                {{ form.role.label }} <!-- Display the form label -->
-                                
-                                <input type="radio" id="parent" name="role" value="parent" 
-                                        {% if form.role.data == 'parent' %} checked {% endif %} 
-                                        onclick="submitToggle()">
+                                <input type="radio" id="parent" name="role" value="parent" onclick="submitToggle()" checked>
                                 <label for="parent">Parent</label>
-                        
-                                <input type="radio" id="teacher" name="role" value="teacher" 
-                                        {% if form.role.data == 'teacher' %} checked {% endif %}
-                                        onclick="submitToggle()">
+                                <input type="radio" id="teacher" name="role" value="teacher" onclick="submitToggle()">
                                 <label for="teacher">Teacher</label>
-                        
-                                <input type="radio" id="student" name="role" value="student" 
-                                        {% if form.role.data == 'student' %} checked {% endif %} 
-                                        onclick="submitToggle()">
+                                <input type="radio" id="student" name="role" value="student" onclick="submitToggle()">
                                 <label for="student">Student</label>
                                 <span class="slider"></span>
                             </div>

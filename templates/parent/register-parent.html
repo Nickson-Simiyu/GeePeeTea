@@ -26,15 +26,10 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='mobile.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='tablet.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='largescreen.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='nav.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='register.css') }}">
 
-    <!---------------------------JS Linking---------------------------------------------->
-    <script src="{{ url_for('serve_js', filename='index.js') }}"></script>
-
-    <!---------------------------Icon Linking---------------------------------------------->
-    <script src="https://kit.fontawesome.com/6c6f1b6f8c.js" crossorigin="anonymous"></script>
 
     <!---------------------------Animations Linking---------------------------------------------->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
@@ -100,17 +95,13 @@
                             </div>
                         </div>
 
-                        <form id="registrationForm">
+                        <form id="registrationForm" action="{{ url_for('main.parent_register') }}" method="POST">
                             <!-- Step 1 -->
                             <div class="form-step active-step" id="step-1">
                                 <h2>User Account Information</h2>
                                 <div class="fields">
                                     <label>Email</label>
                                     <input type="text" placeholder="Email" required>
-                                </div>
-                                <div class="fields">
-                                    <label>Phone-Number</label>
-                                    <input type="number" placeholder="Phone-number" required>
                                 </div>
                                 <div class="fields">
                                     <label>Password</label>
@@ -125,7 +116,7 @@
                             <div class="form-step" id="step-2">
                                 <h2>Personal Details</h2>
                                 <div class="fields">
-                                    <label for="">Full Name</label>
+                                    <label for="fullname">Full Name</label>
                                     <input type="text" placeholder="Full Name" required>
                                 </div>
                                 
@@ -140,7 +131,7 @@
                                 <p>Please review your information, then submit your application.</p>
                                 <div class="steps">
                                     <button type="button" onclick="prevStep()">Previous</button>
-                                    <button type="submit">Submit</button>
+                                    <button type="submit" onclick="submitForm()">Submit</button>
                                 </div>
                             </div>
                         </form>
@@ -202,7 +193,26 @@
             }
         }
     </script>
-    
+    <script>
+        function submitForm() {
+            const form = document.getElementById('myForm');
+            const formData = new FormData(form);
+            
+            fetch('{{ url_for("main.parent_register") }}', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Handle success response
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Handle error response
+            });
+        }
+    </script>
     
 </body>
 </html>

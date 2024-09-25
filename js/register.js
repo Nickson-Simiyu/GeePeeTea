@@ -28,20 +28,5 @@ document.addEventListener('DOMContentLoaded', function() {
     showStep(currentStep);
 });
 
-// Update the label based on slider value
-const roleSlider = document.getElementById('roleSlider');
-const roleLabel = document.getElementById('roleLabel');
-
-roleSlider.addEventListener('input', function() {
-    if (this.value == 1) {
-        roleLabel.textContent = "Parent";
-    } else if (this.value == 2) {
-        roleLabel.textContent = "Teacher";
-    } else if (this.value == 3) {
-        roleLabel.textContent = "Student";
-    }
-});
-
-// Redirect based on slider value
 
 

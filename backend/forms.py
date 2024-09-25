@@ -16,14 +16,8 @@ class RegistrationForm(FlaskForm):
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), Length(min=6, max=100)])
     submit = SubmitField('Register')
     
-    def validate(self):
-        # Call the parent class validate method
-        if not super(RegistrationForm, self).validate():
-            return False
-        
-        # Custom validation logic here (if needed)
-        if self.password.data != self.confirm_password.data:
-            self.password.errors.append("Passwords must match.")
-            return False
-        
-        return True
+    def validate_on_submit(self, extra_validators=None):
+        """Call :meth:`validate` only if the form is submitted.
+        This is a shortcut for ``form.is_submitted() and form.validate()``.
+        """
+        return self.is_submitted() and self.validate(extra_validators=extra_validators)
