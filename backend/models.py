@@ -3,35 +3,27 @@ from flask_sqlalchemy import SQLAlchemy
 
 db = SQLAlchemy()
 
-class Person(db.Model):
-    __tablename__ = 'persons'
+class Parent(db.Model):
+    __tablename__ = 'parents'
     id = db.Column(db.Integer, primary_key=True)
     fullname = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), unique=True, nullable=False)
     password = db.Column(db.String(128), nullable=False)
-
-    # Optionally, you can add a relationship to the user roles
-    parents = db.relationship('Parent', backref='person', lazy=True)
-    teachers = db.relationship('Teacher', backref='person', lazy=True)
-    students = db.relationship('Student', backref='person', lazy=True)
-
-class Parent(db.Model):
-    __tablename__ = 'parents'
-    id = db.Column(db.Integer, primary_key=True)
-    person_id = db.Column(db.Integer, db.ForeignKey('persons.id'), nullable=False)
     student_name = db.Column(db.String(100), nullable=False)
 
 class Teacher(db.Model):
     __tablename__ = 'teachers'
     id = db.Column(db.Integer, primary_key=True)
-    person_id = db.Column(db.Integer, db.ForeignKey('persons.id'), nullable=False)
+    fullname = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(128), nullable=False)
 
 class Student(db.Model):
     __tablename__ = 'students'
     id = db.Column(db.Integer, primary_key=True)
-    person_id = db.Column(db.Integer, db.ForeignKey('persons.id'), nullable=False)
-
-    from datetime import datetime
+    fullname = db.Column(db.String(100), nullable=False)
+    email = db.Column(db.String(100), unique=True, nullable=False)
+    password = db.Column(db.String(128), nullable=False)
 
 class Task(db.Model):
     id = db.Column(db.Integer, primary_key=True)

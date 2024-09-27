@@ -3,7 +3,7 @@ import bcrypt
 from flask import Blueprint, app, flash, redirect, render_template, request, session, url_for
 from flask_login import login_required, logout_user
 from forms import LoginForm, RegistrationForm
-from models import Person, Task, db
+from models import Parent, Student, Task, Teacher, db
 
 main = Blueprint('main', __name__)
 
@@ -58,18 +58,20 @@ def parent_register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Person(fullname=form.fullname.data, student_name=form.student_name.data, mail=form.email.data, password=hashed_password)
+        user = Parent(fullname=form.fullname.data, student_name=form.student_name.data, mail=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Account created successfully!', 'success')
         return redirect(url_for('main.parent_login'))
-    return render_template("parent/login-parent.html", form=form)
+    else :
+        flash('Account creation unsuccessful. Check email and password.', 'danger')
+        return render_template("parent/register-parent.html", form=form)
 
 @main.route('/login-parent', methods=['GET', 'POST'])
 def parent_login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = Person.query.filter_by(fullname=form.fullname.data).first()
+        user = Parent.query.filter_by(fullname=form.fullname.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             # Save user info in the session
             session['user_id'] = user.id
@@ -96,7 +98,7 @@ def teacher_register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Person(fullname=form.fullname.data, email=form.email.data, password=hashed_password)
+        user = Teacher(fullname=form.fullname.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Account created successfully!', 'success')
@@ -107,7 +109,7 @@ def teacher_register():
 def teacher_login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = Person.query.filter_by(fullname=form.fullname.data).first()
+        user = Teacher.query.filter_by(fullname=form.fullname.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             # Save user info in the session
             session['user_id'] = user.id
@@ -171,7 +173,7 @@ def student_register():
     form = RegistrationForm()
     if form.validate_on_submit():
         hashed_password = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
-        user = Person(fullname=form.fullname.data, email=form.email.data, password=hashed_password)
+        user = Student(fullname=form.fullname.data, email=form.email.data, password=hashed_password)
         db.session.add(user)
         db.session.commit()
         flash('Account created successfully!', 'success')
@@ -182,7 +184,7 @@ def student_register():
 def student_login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = Person.query.filter_by(fullname=form.fullname.data).first()
+        user = Student.query.filter_by(fullname=form.fullname.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             # Save user info in the session
             session['user_id'] = user.id

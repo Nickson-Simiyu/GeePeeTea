@@ -5,15 +5,14 @@ from wtforms.validators import DataRequired, Email, Length
 class LoginForm(FlaskForm):
     fullname = StringField('Full Name', validators=[DataRequired(), Length(min=2, max=100)])
     email = StringField('Email', validators=[DataRequired(), Email()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    role = RadioField('Role', choices=[('parent', 'Parent'), ('teacher', 'Teacher'), ('student', 'Student')], default='student', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=100)])
     submit = SubmitField('Login')
 
 class RegistrationForm(FlaskForm):
     fullname = StringField('Full Name', validators=[DataRequired(), Length(min=2, max=100)])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired(), Length(min=6, max=100)])
-    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), Length(min=6, max=100)])
+    student_name = StringField('Student Name', validators=[DataRequired(), Length(min=2, max=100)])
     submit = SubmitField('Register')
     
     def validate_on_submit(self, extra_validators=None):
